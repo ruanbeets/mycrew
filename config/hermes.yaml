@@ -1,0 +1,32 @@
+max_concurrent_sessions: 1
+model:
+  default: local-cheap
+  provider: custom
+  base_url: http://127.0.0.1:4000/v1
+  context_length: 8192
+agent:
+  max_turns: 16
+terminal:
+  backend: local
+  cwd: /workspace
+delegation:
+  max_iterations: 8
+  max_concurrent_children: 2
+  max_spawn_depth: 1
+  orchestrator_enabled: false
+  subagent_auto_approve: false
+  inherit_mcp_toolsets: false
+approvals:
+  mode: manual
+  timeout: 300
+  cron_mode: deny
+  single_query_mode: deny
+  unattended_mode: deny
+  mcp_reload_confirm: true
+  destructive_slash_confirm: true
+platform_toolsets:
+  cli: [terminal, file, delegation, memory]
+  api_server: [terminal, file, delegation, memory]
+  telegram: [terminal, file, delegation, memory]
+stt:
+  enabled: false
