@@ -75,6 +75,15 @@ GPU 758–800 MiB VRAM, 7–8% utilization, 36°C. This is a live desktop, not a
 server-idle benchmark. Machine-readable observations are in ignored `logs/`.
 Full idle/control-plane and agent-test measurements await container startup.
 
+| Observation | RAM used / available | CPU sample / 1-min load | GPU VRAM / utilization |
+|---|---|---|---|
+| Before model load | 6,860 / 9,060 MiB | 5.8% / 1.90 | 622 MiB / 20% |
+| 8K model resident, after inference | 7,494 / 8,426 MiB | 2.5% / 1.25 | 4,645 MiB / 4% |
+
+These are brief desktop snapshots, not sustained-load averages. The model's
+generation benchmark is separate. 24/7 control-plane stability is **not yet
+verified** because the container services have not started.
+
 ## How I use it
 
 From the repository: `scripts/chat.sh`, `scripts/status.sh`, `scripts/health.sh`,
@@ -113,6 +122,11 @@ STT is disabled in Phase 1; no separate voice models or services installed.
 - Full proxy/database/dashboard/delegation/recovery tests pending Docker availability.
 - No reboot performed; boot persistence must be checked through enabled units and
   restart policies, not assumed from a successful start.
+- Re-running secret initialization preserved the existing `.env` byte-for-byte;
+  its file permissions exclude other users. Runtime and secret paths are ignored.
+- Final live health check: Ollama reachable; proxy, Hermes and dashboard unavailable.
+- All intended tracked files reviewed for credentials; configuration/scripts/docs
+  committed in logical commits and pushed to `git@github.com:ruanbeets/mycrew.git`.
 
 ## Problems
 
