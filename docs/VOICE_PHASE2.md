@@ -1,4 +1,4 @@
-# Micru voice: Phase 2
+# Mycrew voice: Phase 2
 
 Hermes natively accepts Telegram voice notes, transcribes them, and processes the
 text as a normal message. Hold Telegram's microphone button to record and release

@@ -13,7 +13,7 @@ if target.exists():
     raise SystemExit(0)
 values = dict(line.split('=', 1) for line in (ROOT / '.env').read_text().splitlines()
               if line and not line.startswith('#'))
-payload = {'models': ['local-cheap'], 'key_alias': 'micru-local',
+payload = {'models': ['local-cheap'], 'key_alias': 'mycrew-local',
            'rpm_limit': 30, 'max_parallel_requests': 3,
            'metadata': {'purpose': 'local inference only'}}
 request = urllib.request.Request('http://127.0.0.1:4000/key/generate',

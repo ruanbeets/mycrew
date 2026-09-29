@@ -9,5 +9,5 @@ for endpoint in 'Ollama|11434/api/version' 'LiteLLM|4000/health/liveliness' 'Her
     echo "$name: unavailable"; failed=1
   fi
 done
-if dc exec -T postgres pg_isready -U micru -d micru; then :; else failed=1; fi
+if dc exec -T postgres pg_isready -U mycrew -d mycrew; then :; else failed=1; fi
 exit "$failed"

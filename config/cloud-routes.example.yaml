@@ -1,5 +1,5 @@
 # NOT LOADED. Activating cloud routes requires Captain authorization,
-# provider credentials and a separate budget-limited key. Keep Micru's
+# provider credentials and a separate budget-limited key. Keep Mycrew's
 # existing key restricted to local-cheap; never apply a global budget.
 model_list:
   - model_name: mimo-v2.6-flash

@@ -1,4 +1,4 @@
-# Micru
+# Mycrew
 
 A small, private AI supervisor on CachyOS: Hermes, one local Ollama model,
 LiteLLM routing/accounting and PostgreSQL. This existing `mycrew` repository
@@ -58,7 +58,7 @@ network access; it is not a network isolation boundary.
 
 Config and SOUL are mounted read-only: edit the versioned files and restart.
 Hermes sessions/memory persist in `state/hermes`; PostgreSQL persists in Docker's
-named `micru_ledger` volume. LiteLLM records actual calls in its own tables.
+named `mycrew_ledger` volume. LiteLLM records actual calls in its own tables.
 The five `ledger.*` tables are an empty expansion foundation, not an invented
 automatic mission-accounting integration. No cron jobs or outreach are created.
 
@@ -79,8 +79,8 @@ the Git diff. Stop Hermes before copying its SQLite state. Export PostgreSQL wit
 ```bash
 mkdir -p backups
 chmod 700 backups
-bash -c 'source scripts/common.sh; dc exec -T postgres pg_dump -U micru micru' > backups/micru.sql
-chmod 600 backups/micru.sql
+bash -c 'source scripts/common.sh; dc exec -T postgres pg_dump -U mycrew mycrew' > backups/mycrew.sql
+chmod 600 backups/mycrew.sql
 ```
 
 Container images are pinned by digest for x86_64. Pull repository updates, review changes and run `start.sh`. To update container

@@ -50,7 +50,7 @@ data = {
     'usage': get('9119/api/analytics/usage?days=7'),
     'tailscale': run(['tailscale', 'status']),
     'containers': run(['bash', '-c', 'source "$1/scripts/common.sh"; dc ps --format json', 'status', str(ROOT)]),
-    'postgres': run(['bash', '-c', 'source "$1/scripts/common.sh"; dc exec -T postgres pg_isready -U micru -d micru', 'status', str(ROOT)]),
+    'postgres': run(['bash', '-c', 'source "$1/scripts/common.sh"; dc exec -T postgres pg_isready -U mycrew -d mycrew', 'status', str(ROOT)]),
 }
 if '--text' in sys.argv:
     for key, value in data.items():
